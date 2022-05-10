@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //TODO: Fix react env not working - problem
-const apiEndpoint = "https://inec-node.herokuapp.com/";
+const apiEndpoint = "https://inec-node.herokuapp.com";
 
 export const getLGA = () => {
   return axios.get(`${apiEndpoint}/lga`);
