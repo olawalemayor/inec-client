@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glass-green {
+  background-color: rgba(1, 40, 1, 0.378);
+  backdrop-filter: blur(7px);
+}
+
+.pg-bg {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(23, 82, 25, 1) 63%
+  );
+}
