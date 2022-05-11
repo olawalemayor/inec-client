@@ -1,8 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { getLGA } from "../services/pollingService";
-import LGAFilter from "../shared/lgaFilter";
-import { LGA } from "../models/lga";
+import PartyFilter from "../shared/partyFilter";
 
 export default function Polling() {
   return (
@@ -13,7 +9,7 @@ export default function Polling() {
 
       <div className="flex justify-around text-center h-full">
         <div className="mt-[30vh]">
-          <LGAFilter />
+          <PartyFilter />
         </div>
       </div>
     </div>

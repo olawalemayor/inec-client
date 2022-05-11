@@ -5,13 +5,19 @@ const NavMenu = () => {
   return (
     <div className="flex items-center uppercase">
       <div className="mx-2 text-white hover:text-gray-300">
-        <NavLink to="polling">Polling</NavLink>
+        <NavLink to="polling" className="nav-link">
+          Polling
+        </NavLink>
       </div>
       <div className="mx-2 text-white hover:text-gray-300">
-        <NavLink to="lga">LGA RESULTS</NavLink>
+        <NavLink to="lga" className="nav-link">
+          LGA RESULTS
+        </NavLink>
       </div>
       <div className="mx-2 text-white hover:text-gray-300">
-        <NavLink to="parties">Parties</NavLink>
+        <NavLink to="individual" className="nav-link">
+          Individual
+        </NavLink>
       </div>
     </div>
   );

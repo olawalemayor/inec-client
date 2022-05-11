@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { getLGA } from "../services/pollingService";
-import { LGA } from "../models/lga";
+import { getParties } from "../services/pollingService";
+import { Party } from "../models/party";
 
-export default function LGAFilter() {
+export default function PartyFilter() {
   const navigate = useNavigate();
   const [selected, setSelected] = useState<string>("");
-  const [lgaData, setLgaData] = useState<LGA[]>([]);
+  const [partyData, setPartyData] = useState<Party[]>([]);
 
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const fetchLgas = async () => {
-      const { data } = await getLGA();
-      setLgaData(data);
+    const fetchParties = async () => {
+      const { data } = await getParties();
+      setPartyData(data);
     };
 
-    fetchLgas().catch((err) => console.error(err));
-  }, [getLGA]);
+    fetchParties().catch((err) => console.error(err));
+  }, [getParties]);
 
-  const setFilter = (lgaId: string) =>
-    pathname === "/lga"
-      ? navigate(lgaId)
-      : navigate(`../lga/${lgaId}`, { replace: true });
+  const setFilter = (partyName: string) =>
+    pathname === "/polling"
+      ? navigate(partyName)
+      : navigate(`../polling/${partyName}`, { replace: true });
 
   return (
     <div className="p-2">
@@ -37,12 +37,12 @@ export default function LGAFilter() {
           onChange={(e) => setSelected(e.currentTarget.value)}
         >
           <option value="" className="text-center">
-            --Select LGA--
+            --Select Political Party--
           </option>
-          {lgaData.length &&
-            lgaData.map(({ lga_id, lga_name }) => (
-              <option key={lga_id} className="text-center" value={lga_id}>
-                {lga_name}
+          {partyData.length &&
+            partyData.map(({ partyid, partyname }) => (
+              <option key={partyid} className="text-center" value={partyname}>
+                {partyname}
               </option>
             ))}
         </select>
